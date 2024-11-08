@@ -8,10 +8,37 @@
 @font-face {
   font-family: "Roboto";
   font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Roboto-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
   font-weight: 700;
   src: url("./assets/fonts/Roboto-Bold.woff2") format("woff2");
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

@@ -1,0 +1,24 @@
+.main {
+  min-width: 375px;
+  max-width: 1440px;
+}
+
+.wrapper {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main__title {
+  color: #898290;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.1px;
+}
+
+.main__more-button {
+  transform: rotate(90deg);
+}
