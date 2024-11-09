@@ -1,6 +1,7 @@
 .chart_container {
   text-align: center;
   padding-top: 132px;
+  padding-bottom: 132px;
 
 }
 
@@ -8,7 +9,6 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 20px;
 }
 
 
