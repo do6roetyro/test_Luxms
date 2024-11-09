@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData, setDataIndex } from "../../reducers/dataSlice";
 import Chart from "../Chart/Chart";
-import "../Chart/Chart.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
@@ -37,16 +36,14 @@ const MainContainer = () => {
   return (
     <main className="main">
       <div className="wrapper">
-        <h1 className="main__title">
-          {`Количество пройденных тестов ${data?.title}` || "Загрузка данных..."}
+        <h1 className="visually-hidden">Анализ тестов различных систем</h1>
+        <h2 className="main__title">
+          {`Количество пройденных тестов ${data?.title}` ||
+            "Загрузка данных..."}
           <IconButton onClick={handleMenuOpen}>
             <MoreVertIcon className="main__more-button" />
           </IconButton>
-        </h1>
-
-        {/* Иконка троеточия для открытия меню */}
-
-        {/* Выпадающее меню для выбора данных */}
+        </h2>
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}

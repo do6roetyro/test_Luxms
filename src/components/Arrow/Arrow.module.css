@@ -1,0 +1,38 @@
+.diff {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  border-radius: 50px;
+  min-width: 48px;
+}
+
+.diff_down {
+  background-color: #fc440f;
+}
+
+.diff_up {
+  background-color: #00cc99;
+}
+
+.diff_neutral {
+  background-color: #898290;
+}
+
+.icon {
+  width: 10px;
+  height: 8px;
+}
+
+.up {
+  transform: rotate(180deg); 
+}
+
+.down {
+  transform: rotate(0deg); 
+}

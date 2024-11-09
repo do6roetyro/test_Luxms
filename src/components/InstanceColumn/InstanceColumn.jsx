@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./InstanceColumn.module.css";
 
 const InstanceColumn = ({ label, instanceData, normValue }) => {
   // Вычисляем высоту каждого компонента, если это не норматив
@@ -8,28 +9,28 @@ const InstanceColumn = ({ label, instanceData, normValue }) => {
   const totalHeight = frontHeight + backHeight + dbHeight;
 
   return (
-    <div className="instance-column">
-      <div className="column">
+    <div className={style.instance_column}>
+      <div className={style.column}>
         {normValue ? (
-          <div className="norm" style={{ height: `${normValue}%` }}>
+          <div className={style.norm} style={{ height: `${normValue}%` }}>
             <span>{normValue}</span>
           </div>
         ) : (
           <>
             <div
-              className="segment front"
+              className={`${style.segment} ${style.front}`}
               style={{ height: `${(frontHeight / totalHeight) * 100}%` }}
             >
               <span>{frontHeight}</span>
             </div>
             <div
-              className="segment back"
+              className={`${style.segment} ${style.back}`}
               style={{ height: `${(backHeight / totalHeight) * 100}%` }}
             >
               <span>{backHeight}</span>
             </div>
             <div
-              className="segment db"
+              className={`${style.segment} ${style.db}`}
               style={{ height: `${(dbHeight / totalHeight) * 100}%` }}
             >
               <span>{dbHeight}</span>
@@ -37,7 +38,7 @@ const InstanceColumn = ({ label, instanceData, normValue }) => {
           </>
         )}
       </div>
-      <div className="label">{label}</div>
+      <div className={style.label}>{label}</div>
     </div>
   );
 };

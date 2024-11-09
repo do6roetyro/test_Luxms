@@ -1,28 +1,28 @@
-import React from 'react';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import './Arrow.css';
+import React from "react";
+import { ReactComponent as VectorIcon } from "../../assets/icons/vector.svg";
+import style from "./Arrow.module.css";
 
 const Arrow = ({ difference }) => {
-  let color, icon, text;
+  let containerClassName;
+  let arrowClassName;
+  let text;
 
   if (difference > 0) {
-    color = '#00CC99'; // Зеленый для увеличения
-    icon = <ArrowDropUpIcon />;
+    containerClassName = `${style.diff} ${style.diff_up}`;
+    arrowClassName = `${style.icon} ${style.up}`;
     text = `+${difference}`;
   } else if (difference < 0) {
-    color = '#FC440F'; // Красный для уменьшения
-    icon = <ArrowDropDownIcon />;
+    containerClassName = `${style.diff} ${style.diff_down}`;
+    arrowClassName = `${style.icon} ${style.down}`;
     text = `${difference}`;
   } else {
-    color = '#898290'; // Серый для отсутствия изменений
-    icon = null;
-    text = '0';
+    containerClassName = `${style.diff} ${style.diff_neutral}`;
+    text = "0";
   }
 
   return (
-    <div className="arrow" style={{ color }}>
-      {icon}
+    <div className={containerClassName}>
+      {difference !== 0 && <VectorIcon className={arrowClassName} />}
       <span>{text}</span>
     </div>
   );

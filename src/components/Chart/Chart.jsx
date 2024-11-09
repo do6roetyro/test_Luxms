@@ -1,6 +1,7 @@
 import React from "react";
-import InstanceColumn from "../InstanceColumn";
+import InstanceColumn from "../InstanceColumn/InstanceColumn";
 import Arrow from "../Arrow/Arrow";
+import style from "./Chart.module.css";
 
 const Chart = ({ data }) => {
   if (!data) return null;
@@ -15,22 +16,14 @@ const Chart = ({ data }) => {
   const testToProdDiff = prodTotal - testTotal;
 
   return (
-    <div className="chart-container">
+    <div className={style.chart_container}>
       <h2 className="visually-hidden">{data.title}</h2>
-      <div className="chart">
+      <div className={style.chart}>
         <InstanceColumn label="dev" instanceData={data.dev} />
-
-        {/* Стрелка между dev и test */}
         <Arrow difference={devToTestDiff} />
-
         <InstanceColumn label="test" instanceData={data.test} />
-
-        {/* Стрелка между test и prod */}
         <Arrow difference={testToProdDiff} />
-
         <InstanceColumn label="prod" instanceData={data.prod} />
-
-        {/* Нормативный столбец */}
         <InstanceColumn label="норматив" normValue={data.norm} />
       </div>
     </div>
