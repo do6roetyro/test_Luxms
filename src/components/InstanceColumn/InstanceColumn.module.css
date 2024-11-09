@@ -2,12 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80px;
   min-width: 80px;
-  &:last-child {
-    position: relative;
-    left: 60px;
-  }
+ 
 }
 
 .column {
@@ -16,12 +12,9 @@
   justify-content: flex-end;
   width: 100%;
   border: none;
-
-  position: relative;
 }
 
 .segment {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +22,6 @@
   color: #ffffff;
   font-size: 14px;
   line-height: 16px;
-  min-width: 80px;
 }
 
 .front {
@@ -60,7 +52,7 @@
   justify-content: center;
   font-weight: bold;
   border-radius: 10px;
-  min-width: 80px;
+
 
   span {
     background-color: #ffffff;
@@ -68,16 +60,13 @@
     padding: 4px 12px;
     border-radius: 5px;
     color: #898290;
+    font-size: 14px;
   }
 }
 
 .label {
   margin-top: 8px;
-  font-size: 1rem;
-}
-
-.norm .label {
-  color: red;
+  font-size: 14px;
 }
 
 .arrow {
@@ -85,4 +74,59 @@
   align-items: center;
   font-size: 1.2rem;
   color: #333;
+}
+
+.dev {
+  
+  /* Стили для столбика "dev" */
+}
+
+.dev::before {
+  content: "";
+  width: 1px;
+  height: 81px;
+  top: 0px;
+  margin-bottom: 2px;
+  background-color: #898290;
+  position: relative;
+}
+
+.test::before {
+  content: "";
+  width: 1px;
+  height: 81px;
+  margin-bottom: 2px;
+  position: relative;
+  left: -12px;
+  background-color: #898290;
+}
+
+.test::after {
+  content: "";
+  width: 1px;
+  height: 81px;
+  margin-bottom: 2px;
+  position: absolute;
+  right: 28px;
+  background-color: #898290;
+}
+
+.test {
+ position: relative;
+
+}
+
+.prod {
+
+ 
+  /* Стили для столбика "prod" */
+}
+
+.prod::before {
+  content: "";
+  width: 1px;
+  height: 81px;
+  margin-bottom: 2px;
+  position: relative;
+  background-color: #898290;
 }

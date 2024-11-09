@@ -9,6 +9,32 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  
+
   position: relative;
+  max-height: 480px;
+}
+
+
+.diff_down {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #fc440f;
+  border-radius: 50px;
+}
+
+.diff_up {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #00cc99;
+  border-radius: 50px;
 }

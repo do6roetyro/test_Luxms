@@ -2,7 +2,9 @@ import React from "react";
 import { ReactComponent as VectorIcon } from "../../assets/icons/vector.svg";
 import style from "./Arrow.module.css";
 
-const Arrow = ({ difference }) => {
+const Arrow = ({ difference}) => {
+  console.log(style);
+  
   let containerClassName;
   let arrowClassName;
   let text;
@@ -21,10 +23,10 @@ const Arrow = ({ difference }) => {
   }
 
   return (
-    <div className={containerClassName}>
-      {difference !== 0 && <VectorIcon className={arrowClassName} />}
-      <span>{text}</span>
-    </div>
+      <div className={containerClassName}>
+        {difference !== 0 && <VectorIcon className={arrowClassName} />}
+        <span>{text}</span>
+      </div>
   );
 };
 

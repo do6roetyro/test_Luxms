@@ -31,14 +31,14 @@ const Chart = ({ data }) => {
           maxTotal={maxTotal}
           maxChartHeight={maxChartHeight}
         />
-        <Arrow difference={devToTestDiff} />
+        <Arrow difference={devToTestDiff} index={1} />
         <InstanceColumn
           label="test"
           instanceData={data.test}
           maxTotal={maxTotal}
           maxChartHeight={maxChartHeight}
         />
-        <Arrow difference={testToProdDiff} />
+        <Arrow difference={testToProdDiff} index={2} />
         <InstanceColumn
           label="prod"
           instanceData={data.prod}

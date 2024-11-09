@@ -1,28 +1,27 @@
 .main {
-    min-width: 375px;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-  
-  .wrapper {
-   width: 600px;
-    margin: 0 auto;
-    margin-top: 32px;
-    position: relative;
-  }
-  
-  .main_title {
-    color: #898290;
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 21px;
-    letter-spacing: 0.1px;
-    margin: 0;
-  }
-  
-  .main_more_button {
-    transform: rotate(90deg);
-  }
-  
+  min-width: 560px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 560px;
+  margin: 0 auto;
+  margin-top: 32px;
+  position: relative;
+}
+
+.main_title {
+  color: #898290;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.1px;
+  margin: 0;
+}
+
+.main_more_button {
+  transform: rotate(90deg);
+}
