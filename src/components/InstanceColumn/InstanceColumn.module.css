@@ -20,8 +20,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 16px;
   }
   
   .front {
@@ -38,7 +40,7 @@
   
   .norm {
     background: repeating-linear-gradient(
-      45deg,
+      -45deg,
       #4ab6e8,
       #4ab6e8 10px,
       #ffffff 10px,
@@ -49,6 +51,14 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
+
+    span {
+      background-color: #ffffff;
+      display: block;
+      padding: 4px 12px;
+      border-radius: 5px;
+      color: #898290;
+    }
   }
   
   .label {

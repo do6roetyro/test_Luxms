@@ -6,7 +6,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import "./Main.css";
+import style from './Main.module.css'
 
 const MainContainer = () => {
   const dispatch = useDispatch();
@@ -34,14 +34,14 @@ const MainContainer = () => {
   };
 
   return (
-    <main className="main">
-      <div className="wrapper">
+    <main className={style.main}>
+      <div className={style.wrapper}>
         <h1 className="visually-hidden">Анализ тестов различных систем</h1>
-        <h2 className="main__title">
+        <h2 className={style.main_title}>
           {`Количество пройденных тестов ${data?.title}` ||
             "Загрузка данных..."}
           <IconButton onClick={handleMenuOpen}>
-            <MoreVertIcon className="main__more-button" />
+            <MoreVertIcon className={style.main_more_button} />
           </IconButton>
         </h2>
         <Menu
