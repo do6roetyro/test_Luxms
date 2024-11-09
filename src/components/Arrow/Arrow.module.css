@@ -10,6 +10,10 @@
   color: #ffffff;
   border-radius: 50px;
   min-width: 48px;
+  position: relative;
+  top: -64px;
+  width: 60px;
+  align-self: self-start;
 }
 
 .diff_down {

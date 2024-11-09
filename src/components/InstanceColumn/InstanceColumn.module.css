@@ -1,74 +1,88 @@
 .instance_column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80px;
-    min-width: 80px;
-  }
-  
-  .column {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;
-    border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  min-width: 80px;
+  &:last-child {
     position: relative;
+    left: 60px;
   }
-  
-  .segment {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 14px;
-    line-height: 16px;
-  }
-  
-  .front {
-    background-color: #4ab6e8;
-  }
-  
-  .back {
-    background-color: #aa6fac;
-  }
-  
-  .db {
-    background-color: #e85498;
-  }
-  
-  .norm {
-    background: repeating-linear-gradient(
-      -45deg,
-      #4ab6e8,
-      #4ab6e8 10px,
-      #ffffff 10px,
-      #ffffff 20px
-    );
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+}
 
-    span {
-      background-color: #ffffff;
-      display: block;
-      padding: 4px 12px;
-      border-radius: 5px;
-      color: #898290;
-    }
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  border: none;
+
+  position: relative;
+}
+
+.segment {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 16px;
+  min-width: 80px;
+}
+
+.front {
+  background-color: #4ab6e8;
+  border-radius: 10px 10px 0 0;
+}
+
+.back {
+  background-color: #aa6fac;
+}
+
+.db {
+  background-color: #e85498;
+  border-radius: 0 0 10px 10px;
+}
+
+.norm {
+  background: repeating-linear-gradient(
+    -45deg,
+    #4ab6e8,
+    #4ab6e8 10px,
+    #ffffff 10px,
+    #ffffff 20px
+  );
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 10px;
+  min-width: 80px;
+
+  span {
+    background-color: #ffffff;
+    display: block;
+    padding: 4px 12px;
+    border-radius: 5px;
+    color: #898290;
   }
-  
-  .label {
-    margin-top: 8px;
-    font-size: 1rem;
-  }
-  
-  .arrow {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    color: #333;
-  }
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.norm .label {
+  color: red;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #333;
+}

@@ -2,13 +2,13 @@
   text-align: center;
   padding-top: 132px;
   padding-bottom: 132px;
-
+  
 }
 
 .chart {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  
+  position: relative;
 }
-
-
