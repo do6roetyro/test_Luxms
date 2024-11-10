@@ -18,15 +18,15 @@ const Chart = ({ data }) => {
 
   const calculatePositions = (devPos, testPos, prodPos) => ({
     devToTest: createUShapedArrowPath(
-      devPos.x + 39,
+      devPos.x + 35,
       devPos.y,
-      testPos.x + 30,
+      testPos.x + 33,
       testPos.y
     ),
     testToProd: createUShapedArrowPath(
-      testPos.x + 48,
+      testPos.x + 44,
       testPos.y,
-      prodPos.x + 42,
+      prodPos.x + 35,
       prodPos.y
     ),
   });

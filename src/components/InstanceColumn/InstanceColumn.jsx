@@ -19,7 +19,7 @@ const InstanceColumn = ({
   };
 
   if (normValue !== undefined) {
-    let normHeightPx = calculateHeight(normValue, maxTotal);
+    let normHeightPx = calculateHeight(normValue, maxTotal) /2.5;
 
     if (normHeightPx < MIN_SEGMENT_HEIGHT || normValue === 0) {
       normHeightPx = MIN_SEGMENT_HEIGHT;
@@ -44,9 +44,9 @@ const InstanceColumn = ({
 
   // const instanceTotal = frontValue + backValue + dbValue;
 
-  let frontHeightPx = calculateHeight(frontValue, maxTotal);
-  let backHeightPx = calculateHeight(backValue, maxTotal);
-  let dbHeightPx = calculateHeight(dbValue, maxTotal);
+  let frontHeightPx = calculateHeight(frontValue, maxTotal) /2.5;
+  let backHeightPx = calculateHeight(backValue, maxTotal) /2.5;
+  let dbHeightPx = calculateHeight(dbValue, maxTotal) /2.5;
 
   let segments = [
     { name: "front", value: frontValue, height: frontHeightPx },
