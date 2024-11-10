@@ -7,11 +7,19 @@ const InstanceColumn = ({
   normValue,
   maxTotal,
   maxChartHeight,
+  // globalMinTotal,
 }) => {
   const MIN_SEGMENT_HEIGHT = 24; // Минимальная высота сегмента в пикселях
 
+  const calculateHeight = (value, maxValue) => {
+    // Используем логарифмическое масштабирование
+    const logValue = Math.log10(value || 1);
+    const logMax = Math.log10(maxValue || 1);
+    return (logValue / logMax) * maxChartHeight;
+  };
+
   if (normValue !== undefined) {
-    let normHeightPx = (normValue / maxTotal) * maxChartHeight;
+    let normHeightPx = calculateHeight(normValue, maxTotal);
 
     if (normHeightPx < MIN_SEGMENT_HEIGHT || normValue === 0) {
       normHeightPx = MIN_SEGMENT_HEIGHT;
@@ -34,12 +42,11 @@ const InstanceColumn = ({
   const backValue = instanceData.back;
   const dbValue = instanceData.db;
 
-  const instanceTotal = frontValue + backValue + dbValue;
+  // const instanceTotal = frontValue + backValue + dbValue;
 
-  const totalHeightPx = (instanceTotal / maxTotal) * maxChartHeight;
-  let frontHeightPx = (frontValue / instanceTotal) * totalHeightPx;
-  let backHeightPx = (backValue / instanceTotal) * totalHeightPx;
-  let dbHeightPx = (dbValue / instanceTotal) * totalHeightPx;
+  let frontHeightPx = calculateHeight(frontValue, maxTotal);
+  let backHeightPx = calculateHeight(backValue, maxTotal);
+  let dbHeightPx = calculateHeight(dbValue, maxTotal);
 
   let segments = [
     { name: "front", value: frontValue, height: frontHeightPx },
@@ -47,41 +54,11 @@ const InstanceColumn = ({
     { name: "db", value: dbValue, height: dbHeightPx },
   ];
 
-  let totalMinHeights = 0;
   segments.forEach((segment) => {
     if (segment.height < MIN_SEGMENT_HEIGHT || segment.value === 0) {
-      totalMinHeights += MIN_SEGMENT_HEIGHT;
       segment.height = MIN_SEGMENT_HEIGHT;
     }
   });
-
-  const remainingHeightPx = totalHeightPx - totalMinHeights;
-  const totalOriginalHeights = segments.reduce((sum, segment) => {
-    if (segment.height > MIN_SEGMENT_HEIGHT) {
-      return sum + segment.height;
-    }
-    return sum;
-  }, 0);
-
-  segments.forEach((segment) => {
-    if (segment.height > MIN_SEGMENT_HEIGHT) {
-      segment.height =
-        (segment.height / totalOriginalHeights) * remainingHeightPx +
-        MIN_SEGMENT_HEIGHT;
-    }
-  });
-
-  const adjustedTotalHeight = segments.reduce(
-    (sum, segment) => sum + segment.height,
-    0
-  );
-
-  if (adjustedTotalHeight > maxChartHeight) {
-    const scalingFactor = maxChartHeight / adjustedTotalHeight;
-    segments.forEach((segment) => {
-      segment.height *= scalingFactor;
-    });
-  }
 
   return (
     <div className={style.instance_column}>

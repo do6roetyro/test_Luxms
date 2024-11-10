@@ -26,7 +26,7 @@ const Chart = ({ data }) => {
     testToProd: createUShapedArrowPath(
       testPos.x + 48,
       testPos.y,
-      prodPos.x + 35,
+      prodPos.x + 42,
       prodPos.y
     ),
   });
