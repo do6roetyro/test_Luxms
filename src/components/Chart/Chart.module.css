@@ -1,7 +1,6 @@
 .chart_container {
   text-align: center;
   padding-top: 132px;
-  padding-bottom: 132px;
 }
 
 .chart {
@@ -23,6 +22,6 @@
 
 .test {
   position: relative;
-  height: 500px;
+  /* height: 500px; */
 } 
 

@@ -1,0 +1,24 @@
+.legend {
+  display: flex;
+  gap: 47px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  font-size: 10px;
+  line-height: 12px;
+
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  color: #898290; 
+}
+
+.colorBox {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}

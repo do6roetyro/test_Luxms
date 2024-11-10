@@ -6,9 +6,10 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Legend from "../Legend/Legend";
 import style from './Main.module.css'
 
-const MainContainer = () => {
+const Main = () => {
   const dispatch = useDispatch();
   const { data, currentDataIndex, loading, error } = useSelector(
     (state) => state.data
@@ -61,13 +62,15 @@ const MainContainer = () => {
             </MenuItem>
           ))}
         </Menu>
-
+      
         {loading && <p>Загрузка...</p>}
         {error && <p style={{ color: "red" }}>Ошибка: {error}</p>}
         {data && <Chart data={data} />}
+        <Legend />
       </div>
+   
     </main>
   );
 };
 
-export default MainContainer;
+export default Main;

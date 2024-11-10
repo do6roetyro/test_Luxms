@@ -1,6 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import InstanceColumn from "../InstanceColumn/InstanceColumn";
 import DifferenceInfo from "../DifferenceInfo/DifferenceInfo";
+import ArrowPath from "../Arrow/ArrowPath";
+import ArrowMarkerDefs from "../Arrow/ArrowMarkerDefs";
+import {
+  createUShapedArrowPath,
+  calculateTotal,
+  calculateDifference,
+} from "../../utils/createArrowPaths";
 import style from "./Chart.module.css";
 
 const Chart = ({ data }) => {
@@ -9,71 +16,40 @@ const Chart = ({ data }) => {
   const prodRef = useRef(null);
   const [positions, setPositions] = useState({});
 
-  // Функция для создания П-образного пути стрелки
-  const createUShapedArrowPath = (startX, startY, endX, endY) => {
-    // Координаты подъема вверх
-    const midY = 168;
-    console.log(startX, startY, endX, endY);
-    
-    // Строка команды для SVG-пути
-    return `M${startX},${startY} V${midY} H${endX} V${endY}`;
-  };
-
-  const [clickPosition, setClickPosition] = useState(null);
-
-useEffect(() => {
-  const handleClick = (event) => {
-    const { clientX, clientY } = event;
-    console.log({ clientX, clientY })
-    setClickPosition({ x: clientX, y: clientY });
-
-  };
-
-  document.addEventListener("click", handleClick);
-
-  return () => {
-    document.removeEventListener("click", handleClick);
-  };
-}, []);
+  const calculatePositions = (devPos, testPos, prodPos) => ({
+    devToTest: createUShapedArrowPath(
+      devPos.x + 39,
+      devPos.y,
+      testPos.x + 30,
+      testPos.y
+    ),
+    testToProd: createUShapedArrowPath(
+      testPos.x + 48,
+      testPos.y,
+      prodPos.x + 35,
+      prodPos.y
+    ),
+  });
 
   useEffect(() => {
-    // Получаем позиции и размеры элементов после их рендеринга
     const devPos = devRef.current?.getBoundingClientRect();
     const testPos = testRef.current?.getBoundingClientRect();
     const prodPos = prodRef.current?.getBoundingClientRect();
-    console.log('devPos' , devPos)
-    console.log('testPos' , testPos)
-    console.log('prodPos' , prodPos)
-
-    
 
     if (devPos && testPos && prodPos) {
-      setPositions({
-        devToTest: createUShapedArrowPath(
-          devPos.x + 39, //startX
-          devPos.y, //startY
-          testPos.x + 30 , //endX
-          testPos.y, //endY
-        ),
-        testToProd: createUShapedArrowPath(
-          testPos.x + 48,
-          testPos.y,
-          prodPos.x + 40,
-          prodPos.y,
-        ),
-      });
+      setPositions(calculatePositions(devPos, testPos, prodPos));
     }
   }, [data]);
 
   if (!data) return null;
 
-  const devTotal = data.dev.front + data.dev.back + data.dev.db;
-  const testTotal = data.test.front + data.test.back + data.test.db;
-  const prodTotal = data.prod.front + data.prod.back + data.prod.db;
+  const devTotal = calculateTotal(data.dev);
+  const testTotal = calculateTotal(data.test);
+  const prodTotal = calculateTotal(data.prod);
   const maxTotal = Math.max(devTotal, testTotal, prodTotal);
   const maxChartHeight = 400;
-  const devToTestDiff = testTotal - devTotal;
-  const testToProdDiff = prodTotal - testTotal;
+  const devToTestDiff = calculateDifference(devTotal, testTotal);
+  const testToProdDiff = calculateDifference(testTotal, prodTotal);
 
   return (
     <div className={style.test}>
@@ -112,37 +88,10 @@ useEffect(() => {
             maxTotal={maxTotal}
             maxChartHeight={maxChartHeight}
           />
-
-          {/* SVG с П-образными путями для стрелок */}
           <svg className={style.arrow_svg}>
-            <path
-              d={positions.devToTest}
-              stroke="gray"
-              strokeWidth="1"
-              fill="none"
-              markerEnd="url(#arrowhead)"
-            />
-            <path
-              d={positions.testToProd}
-              stroke="gray"
-              strokeWidth="1"
-              fill="none"
-              markerEnd="url(#arrowhead)"
-            />
-            {/* Определение маркера стрелки */}
-            <defs>
-            <marker
-      id="arrowhead"
-      markerWidth="10"
-      markerHeight="10"
-      refX="5"
-      refY="5"
-      orient="auto"
-      markerUnits="strokeWidth"
-    >
-      <path d="M 2 2 L 5 5 L 2 8" fill="none" stroke="#898290" stroke-width="1" stroke-linecap="round" />
-    </marker>
-            </defs>
+            <ArrowPath d={positions.devToTest} />
+            <ArrowPath d={positions.testToProd} />
+            <ArrowMarkerDefs />
           </svg>
         </div>
       </div>

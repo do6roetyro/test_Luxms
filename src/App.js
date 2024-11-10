@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store';
-import MainContainer from './components/Main/Main';
+import Main from './components/Main/Main';
 import './App.css'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <MainContainer />
+        <Main />
       </div>
     </Provider>
   );

@@ -9,6 +9,8 @@
   margin: 0 auto;
   margin-top: 32px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .main_title {
@@ -20,6 +22,7 @@
   line-height: 21px;
   letter-spacing: 0.1px;
   margin: 0;
+  padding: 0 16px;
 }
 
 .main_more_button {
