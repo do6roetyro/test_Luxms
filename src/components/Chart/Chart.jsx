@@ -118,29 +118,30 @@ useEffect(() => {
             <path
               d={positions.devToTest}
               stroke="gray"
-              strokeWidth="2"
+              strokeWidth="1"
               fill="none"
               markerEnd="url(#arrowhead)"
             />
             <path
               d={positions.testToProd}
               stroke="gray"
-              strokeWidth="2"
+              strokeWidth="1"
               fill="none"
               markerEnd="url(#arrowhead)"
             />
             {/* Определение маркера стрелки */}
             <defs>
-              <marker
-                id="arrowhead"
-                markerWidth="10"
-                markerHeight="7"
-                refX="4"
-                refY="3.5"
-                orient="auto"
-              >
-                <polygon points="0 0, 5 3.5, 0 7" fill="#898290" />
-              </marker>
+            <marker
+      id="arrowhead"
+      markerWidth="10"
+      markerHeight="10"
+      refX="5"
+      refY="5"
+      orient="auto"
+      markerUnits="strokeWidth"
+    >
+      <path d="M 2 2 L 5 5 L 2 8" fill="none" stroke="#898290" stroke-width="1" stroke-linecap="round" />
+    </marker>
             </defs>
           </svg>
         </div>
