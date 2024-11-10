@@ -5,6 +5,8 @@ import MainContainer from './components/Main/Main';
 import './App.css'
 
 function App() {
+
+
   return (
     <Provider store={store}>
       <div className="App">

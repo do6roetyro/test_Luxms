@@ -3,7 +3,7 @@ import { ReactComponent as VectorIcon } from "../../assets/icons/vector.svg";
 import style from "./DifferenceInfo.module.css";
 
 const DifferenceInfo = ({ difference, index }) => {
-  console.log(style);
+
 
   let containerClassName;
   let arrowClassName;
