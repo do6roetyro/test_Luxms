@@ -1,10 +1,10 @@
 import React from "react";
 import { ReactComponent as VectorIcon } from "../../assets/icons/vector.svg";
-import style from "./Arrow.module.css";
+import style from "./DifferenceInfo.module.css";
 
-const Arrow = ({ difference}) => {
+const DifferenceInfo = ({ difference, index }) => {
   console.log(style);
-  
+
   let containerClassName;
   let arrowClassName;
   let text;
@@ -22,12 +22,15 @@ const Arrow = ({ difference}) => {
     text = "0";
   }
 
+  const indexClass = index === 1 ? style.firstContainer : style.secondContainer;
+  containerClassName += ` ${indexClass}`;
+
   return (
-      <div className={containerClassName}>
-        {difference !== 0 && <VectorIcon className={arrowClassName} />}
-        <span>{text}</span>
-      </div>
+    <div className={containerClassName}>
+      {difference !== 0 && <VectorIcon className={arrowClassName} />}
+      <span>{text}</span>
+    </div>
   );
 };
 
-export default Arrow;
+export default DifferenceInfo;

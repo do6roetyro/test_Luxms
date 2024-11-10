@@ -76,9 +76,9 @@
   color: #333;
 }
 
-.dev {
+/* .dev {
   
-  /* Стили для столбика "dev" */
+ 
 }
 
 .dev::before {
@@ -119,7 +119,7 @@
 .prod {
 
  
-  /* Стили для столбика "prod" */
+  
 }
 
 .prod::before {
@@ -129,4 +129,4 @@
   margin-bottom: 2px;
   position: relative;
   background-color: #898290;
-}
+} */
