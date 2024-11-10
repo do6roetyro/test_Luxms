@@ -15,9 +15,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: -76px;
+  right: 200px;
   pointer-events: none;
-  z-index: 1; /* Убедитесь, что элемент выше других */
+  z-index: -1; /* Убедитесь, что элемент выше других */
 }
 
 .test {
@@ -25,10 +26,3 @@
   height: 500px;
 } 
 
-.arrow_svg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0; /* Выровнять по контейнеру */
-  pointer-events: none;
-}

@@ -12,7 +12,7 @@ const Chart = ({ data }) => {
   // Функция для создания П-образного пути стрелки
   const createUShapedArrowPath = (startX, startY, endX, endY) => {
     // Координаты подъема вверх
-    const midY = 155;
+    const midY = 168;
     console.log(startX, startY, endX, endY);
     
     // Строка команды для SVG-пути
@@ -52,13 +52,13 @@ useEffect(() => {
         devToTest: createUShapedArrowPath(
           devPos.x + 39, //startX
           devPos.y, //startY
-          testPos.x + 24 , //endX
+          testPos.x + 30 , //endX
           testPos.y, //endY
         ),
         testToProd: createUShapedArrowPath(
-          testPos.x + 40,
+          testPos.x + 48,
           testPos.y,
-          prodPos.x + 31,
+          prodPos.x + 40,
           prodPos.y,
         ),
       });
@@ -135,11 +135,11 @@ useEffect(() => {
                 id="arrowhead"
                 markerWidth="10"
                 markerHeight="7"
-                refX="5"
+                refX="4"
                 refY="3.5"
                 orient="auto"
               >
-                <polygon points="0 0, 10 3.5, 0 7" fill="gray" />
+                <polygon points="0 0, 5 3.5, 0 7" fill="#898290" />
               </marker>
             </defs>
           </svg>
