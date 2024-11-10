@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# Приложение для визуализации данных с логарифмическим масштабированием
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Данное приложение представляет собой React-приложение для визуализации данных в виде столбчатой диаграммы. Оно предназначено для отображения данных с широким диапазоном значений, используя логарифмическое масштабирование и ограничение максимальной высоты столбцов.
 
-## Available Scripts
+## Установка и запуск
 
-In the project directory, you can run:
+### Установка
 
-### `npm start`
+1. **Клонируйте репозиторий или скачайте исходный код:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+    git clone https://github.com/do6roetyro/test_Luxms.git
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Перейдите в директорию проекта:**
 
-### `npm test`
+```bash
+    cd your-repository
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Установите зависимости:**
 
-### `npm run build`
+```bash
+    npm install
+    yarn install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Запуск приложения
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Для запуска приложения в режиме разработки выполните:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+    npm start
+```
 
-### `npm run eject`
+Приложение будет запущено на http://localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Структура проекта
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## src
+Основная директория приложения, содержащая все исходные файлы и директории.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### actions
+Содержит файлы действий (actions) для управления состоянием в Redux.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### assets
+Папка для хранения статических ресурсов, таких как изображения, иконки и другие файлы, которые не требуют обработки.
 
-## Learn More
+### components
+Содержит React-компоненты, используемые в приложении. Включает в себя подкаталоги для организации компонентов по функциональности.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Arrow**: компоненты, отвечающие за отображение стрелок между столбцами, визуализируя переходы между этапами.
+- **Chart**: главный компонент диаграммы, собирающий данные и отображающий столбцы и другие элементы.
+- **DifferenceInfo**: компонент для отображения разницы между этапами (например, между `dev` и `test`) в процентах или абсолютных значениях.
+- **InstanceColumn**: компонент, отвечающий за отображение отдельного столбца с сегментами (`front`, `back`, `db`).
+- **Legend**: компонент для отображения легенды графика, описывающей значения и метки сегментов.
+- **Main**: главный компонент, объединяющий различные части интерфейса.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### reducers
+Содержит редьюсеры Redux для управления состоянием приложения.
 
-### Code Splitting
+### services
+В этой папке размещаются модули для работы с внешними API, взаимодействия с сервером и выполнения других функций, связанных с сервисами.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### store
+Хранит файл настройки хранилища (store) для Redux.
 
-### Analyzing the Bundle Size
+### utils
+Папка `utils` содержит вспомогательные модули, которые используются для вычислений и обработки данных в приложении.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **calculateHeight.js**: функция для вычисления высоты сегментов столбцов, используя логарифмическое масштабирование. Это позволяет корректно отобразить столбцы с сильно различающимися значениями, делая маленькие значения видимыми и избегая доминирования больших значений.
 
-### Making a Progressive Web App
+- **createArrowPaths.js**: утилита для создания путей (path) стрелок, которые отображаются между столбцами на графике. Эта функция рассчитывает позиции и форму стрелок, визуализирующих переходы между этапами, такими как `dev`, `test` и `prod`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **createSegments.js**: функция для создания сегментов данных в каждом столбце. Разделяет общее значение на сегменты, такие как `front`, `back` и `db`, и вычисляет высоту каждого сегмента для корректного отображения в компоненте `InstanceColumn`.
 
-### Advanced Configuration
+### App.css
+Файл CSS для глобальных стилей приложения.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### App.js
+Главный компонент приложения, объединяющий основные части интерфейса и управляющий маршрутизацией.
 
-### Deployment
+### constants.js
+Файл для хранения констант, используемых в приложении, таких как конфигурационные параметры и статические значения.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### index.css
+Файл CSS, который включает в себя стили для начальной настройки и общего оформления приложения.
 
-### `npm run build` fails to minify
+### index.js
+Точка входа в приложение. Этот файл рендерит главный компонент `App` в DOM и подключает Redux store.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Использование
+
+### Формат данных
+
+```json
+{
+  "title": "OS Bombuntu",
+  "dev": {
+    "front": 13,
+    "back": 16,
+    "db": 6
+  },
+  "test": {
+    "front": 13,
+    "back": 16,
+    "db": 6
+  },
+  "prod": {
+    "front": 13,
+    "back": 15,
+    "db": 9
+  },
+  "norm": 10
+}
+```
