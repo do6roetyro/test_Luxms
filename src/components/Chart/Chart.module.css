@@ -1,27 +1,26 @@
 .chart_container {
   text-align: center;
   padding-top: 132px;
+  position: relative;
 }
 
 .chart {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 60px;  
+  gap: 60px;
 }
 
 .arrow_svg {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: -76px;
-  right: 195px;
   pointer-events: none;
-  z-index: -1; /* Убедитесь, что элемент выше других */
+  z-index: -1;
+  bottom: 2px;
 }
 
 .test {
-  position: relative;
+  /* position: relative; */
   /* height: 500px; */
-} 
-
+}

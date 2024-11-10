@@ -18,7 +18,7 @@ const Chart = ({ data }) => {
 
   const calculatePositions = (devPos, testPos, prodPos) => ({
     devToTest: createUShapedArrowPath(
-      devPos.x + 35,
+      devPos.x + 38,
       devPos.y,
       testPos.x + 33,
       testPos.y
@@ -26,19 +26,26 @@ const Chart = ({ data }) => {
     testToProd: createUShapedArrowPath(
       testPos.x + 44,
       testPos.y,
-      prodPos.x + 35,
+      prodPos.x + 38,
       prodPos.y
     ),
   });
 
   useEffect(() => {
-    const devPos = devRef.current?.getBoundingClientRect();
-    const testPos = testRef.current?.getBoundingClientRect();
-    const prodPos = prodRef.current?.getBoundingClientRect();
-
-    if (devPos && testPos && prodPos) {
-      setPositions(calculatePositions(devPos, testPos, prodPos));
-    }
+    const updatePositions = () => {
+      const devPos = devRef.current?.getBoundingClientRect();
+      const testPos = testRef.current?.getBoundingClientRect();
+      const prodPos = prodRef.current?.getBoundingClientRect();
+      if (devPos && testPos && prodPos) {
+        setPositions(calculatePositions(devPos, testPos, prodPos));
+      }
+    };
+ 
+    updatePositions();
+    window.addEventListener("resize", updatePositions);
+    return () => {
+      window.removeEventListener("resize", updatePositions);
+    };
   }, [data]);
 
   if (!data) return null;
@@ -53,6 +60,11 @@ const Chart = ({ data }) => {
 
   return (
     <div className={style.test}>
+       <svg className={style.arrow_svg}>
+            <ArrowPath d={positions.devToTest} />
+            <ArrowPath d={positions.testToProd} />
+            <ArrowMarkerDefs />
+          </svg>
       <div className={style.chart_container}>
         <h2 className="visually-hidden">{data.title}</h2>
         <div className={style.chart}>
@@ -88,11 +100,7 @@ const Chart = ({ data }) => {
             maxTotal={maxTotal}
             maxChartHeight={maxChartHeight}
           />
-          <svg className={style.arrow_svg}>
-            <ArrowPath d={positions.devToTest} />
-            <ArrowPath d={positions.testToProd} />
-            <ArrowMarkerDefs />
-          </svg>
+         
         </div>
       </div>
     </div>

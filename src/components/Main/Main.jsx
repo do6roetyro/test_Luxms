@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Legend from "../Legend/Legend";
-import style from './Main.module.css'
+import style from "./Main.module.css";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -62,13 +62,12 @@ const Main = () => {
             </MenuItem>
           ))}
         </Menu>
-      
+
         {loading && <p>Загрузка...</p>}
         {error && <p style={{ color: "red" }}>Ошибка: {error}</p>}
         {data && <Chart data={data} />}
         <Legend />
       </div>
-   
     </main>
   );
 };

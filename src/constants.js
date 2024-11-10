@@ -1,0 +1,1 @@
+export const MIN_SEGMENT_HEIGHT = 24;

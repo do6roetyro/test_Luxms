@@ -1,14 +1,9 @@
 .main {
-  min-width: 560px;
-  max-width: 1440px;
   margin: 0 auto;
 }
 
 .wrapper {
-  width: 560px;
-  margin: 0 auto;
   margin-top: 32px;
-  position: relative;
   display: flex;
   flex-direction: column;
 }

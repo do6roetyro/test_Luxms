@@ -19,6 +19,10 @@
   src: url("./assets/fonts/Roboto-Bold.woff2") format("woff2");
 }
 
+html {
+  width: 560px;
+}
+
 *,
 *::before,
 *::after {

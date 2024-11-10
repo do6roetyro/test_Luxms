@@ -6,7 +6,6 @@
   padding-top: 40px;
   font-size: 10px;
   line-height: 12px;
-
 }
 
 .legendItem {
@@ -14,7 +13,7 @@
   align-items: center;
   gap: 9px;
   font-size: 14px;
-  color: #898290; 
+  color: #898290;
 }
 
 .colorBox {

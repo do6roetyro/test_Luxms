@@ -11,7 +11,13 @@ const ArrowMarkerDefs = () => (
       orient="auto"
       markerUnits="strokeWidth"
     >
-      <path d="M 2 2 L 5 5 L 2 8" fill="none" stroke="#898290" strokeWidth="1" strokeLinecap="round" />
+      <path
+        d="M 2 2 L 5 5 L 2 8"
+        fill="none"
+        stroke="#898290"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
     </marker>
   </defs>
 );

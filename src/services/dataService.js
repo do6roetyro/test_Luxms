@@ -6,7 +6,6 @@ const urls = [
   "https://rcslabs.ru/ttrp5.json",
 ];
 
-// Функция для загрузки данных по индексу
 export const fetchDataByIndex = async (index) => {
   try {
     const response = await fetch(urls[index]);
